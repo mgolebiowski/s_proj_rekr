@@ -1,58 +1,18 @@
-// startDate and endDate should be proper date js objects.
-// datesTable = [[""data","nazwa","ikona"],["data","nazwa","ikona"],["data","nazwa","ikona"],["data","nazwa","ikona"],...]
-// data:string = e.g. "30.6.2015" => should be proper date local string
-// "nazwa":string
-// "ikona":string => css class
-function Timeline(datesTable, startDate, endDate, currDate){
-  this.datesTable = datesTable;
-  this.startDate = startDate;
-  this.endDate = endDate;
-  this.currDate = currDate;
-  this.calendar = new Array();
-  /*
-  * data structure = [ {}, {}, {}, {}... for every day ]
-  * for past day {"status":"past"}
-  * for current day {"status":"current"}
-  * for event day (==el from datesTable) {"status":"(p)event", "date":"xx.xx.xxxx", "name":"name", "icon":"class-name"} p-past
-  * for future {"status":"future"}
-  */
-  const timeLength = ((this.endDate-this.startDate)/1000/86400)+1;
-  let current = new Date(this.startDate.toString());
-  for(var i=0; i<timeLength; i++){
-    let currString = (current.getDate() > 9) ? current.toLocaleDateString() : "0"+current.toLocaleDateString();
-    let temp;
-    var event = this.datesTable.some((item)=>{
-      if(item[0] == currString){
-        let status = (current <= this.currDate) ? "pevent" : "event";
-        temp = {
-          "status":status,
-          "date":item[0],
-          "name":item[1],
-          "icon":item[2]
-        };
-        console.log(temp);
-        return 1;
-      }
-    });
-    if(!event){
-      if(current < currDate){
-        temp = {
-          "status":"past"
-        };
-      }
-      else if(current.setHours(0,0,0,0) == this.currDate.setHours(0,0,0,0)){
-        temp = {
-          "status":"current"
-        };
-      }
-      else {
-        temp = {
-          "status":"future"
-        };
-      }
-    }
-    this.calendar.push(temp);
-    current.setDate(current.getDate()+1);
-  }
-}
-module.exports = Timeline;
+var Timeline = require("./timeline");
+var TimelineHTML = require('./timelineHTML');
+import $ from 'jquery';
+
+var dTab = [["02.06.2015","lorem ipsum","a"],
+            ["11.06.2015","lorem ipsum","a"],
+            ["15.06.2015","lorem ipsum","a"],
+            ["22.06.2015","lorem ipsum","a"],
+            ["30.06.2015","lorem ipsum","a"]];
+var sDate = new Date("6-01-2015");
+var eDate = new Date("6-30-2015");
+var cDate = new Date("6-10-2015");
+
+var t = new Timeline(dTab, sDate, eDate, cDate);
+console.log(t.calendar);
+var rootEl = $("#app");
+var tHTML = new TimelineHTML(t.calendar, rootEl);
+tHTML.init();
