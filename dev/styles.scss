@@ -12,13 +12,21 @@
     list-style-type: none;
     display:block;
     padding: 0;
-    img{
-      width:50px;
-      height: 50px;
-      border: 1px solid #666;
+    i{
+      width:36px;
+      height: 36px;
+      font-size:18px;
+      border: 4px solid #122244;
       border-radius: 50%;
       float: left;
       margin-right: 20px;
+      line-height: 36px;
+      &:before{
+        margin-left: 9px;
+      }
+      &.fa-graduation-cap:before{
+        margin-left: 2px; //icon is weirdly placed
+      }
     }
     p.date{
       font-weight: bold;
@@ -42,35 +50,55 @@
     li{
       display:inline-block!important;
       vertical-align: middle;
-      border-top: 1px solid #666;
-      border-bottom: 1px solid #666;
-      img{
+      background-position-y: top!important;
+      i{
         margin: 0;
         float: none;
+        &:before{
+          margin-left: 0;
+        }
       }
       p{
         display:none;
       }
+      &.past{
+        background-image: url("el.png");
+      }
+      &.future{
+        background-image: url("elem.png");
+      }
+      &.current{
+        background-image: url("curr.png");
+        background-position: center;
+
+      }
       &:first-child{
-        border-left: 1px solid #666;
+        background-image: url("first.png");
+        background-position: left;
       }
       &:last-child.future{
-        border-right: 1px solid #666;
+        background-image: url("last.png");
+        background-position: right;
       }
+
       &.pevent{
         border:none;
-        img{
-          background-color: blue;
+        border-radius: 50%;
+        i{
+          background-color: #56a0c6;
+          color: #122244;
         }
       }
       &.event{
         border:none;
+        border-radius: 50%;
+        i{
+          background-color: #122244;
+          color: #ffffff;
+        }
       }
       &.past, &.future, &.current {
-        height:25px;
-      }
-      &.past{
-        background-color: blue;
+        height:20px;
       }
     }
   }

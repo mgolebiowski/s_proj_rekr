@@ -25,7 +25,12 @@ module.exports = {
 			})
 		},
 		{ test: /\.css$/, use: ExtractTextPlugin.extract({ fallback: "style-loader",use:{loader:'css-loader', options: {minimize: true}}})}
-	  ],
+    ,
+    {
+        test: /\.png$/, 
+        loader: "file-loader"
+    }
+    ],
 	},
   output: {
     path: path.resolve(__dirname, 'dist'),

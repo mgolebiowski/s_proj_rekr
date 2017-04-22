@@ -17,7 +17,7 @@ TimelineHTML.prototype.init = function(){
       el.attr("data-img-class",day.icon);
 
       let desc = $("<div></div>");
-      desc.append("<img class=\""+ day.icon +"\">");
+      desc.append("<i class=\"fa "+ day.icon +"\">");
       desc.append("<p class=\"date\">"+ day.date +"</p>");
       desc.append("<p class=\"name\">"+ day.name +"</p>");
       el.append(desc);
