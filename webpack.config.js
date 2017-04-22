@@ -11,12 +11,12 @@ module.exports = {
 			test: /\.js$/,
 			exclude: [/node_modules/],
 			use: [{
-			  loader: 'babel-loader',
+			  loader: 'babel-loader?imports?jQuery=jquery,$=jquery,this=>window',
 			  options: {
 				  presets: ['env']
 			  }
 			}],
-		},	
+		},
 		{
 			test: /\.scss$/,
 			use: ExtractTextPlugin.extract({

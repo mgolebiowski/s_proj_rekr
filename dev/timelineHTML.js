@@ -18,12 +18,16 @@ TimelineHTML.prototype.init = function(){
 
       let desc = $("<div></div>");
       desc.append("<img class=\""+ day.icon +"\">");
-      desc.append("<p class=\"data\">"+ day.date +"</p>");
+      desc.append("<p class=\"date\">"+ day.date +"</p>");
       desc.append("<p class=\"name\">"+ day.name +"</p>");
       el.append(desc);
+    }
+    else {
+      el.addClass("noevent");
     }
     list.append(el);
   });
   this.selEl.append(list);
 }
+
 module.exports = TimelineHTML;

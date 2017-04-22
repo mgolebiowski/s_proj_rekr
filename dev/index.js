@@ -1,3 +1,7 @@
 require('normalize.css/normalize.css');
 require('./styles.scss');
-require('./app.js');
+var onWidthChange = require('./app.js');
+import $ from 'jquery';
+
+$( window ).ready(onWidthChange);
+$( window ).resize(onWidthChange);
