@@ -4,7 +4,6 @@ $dark-progress: #417a9f;
 $light-hover: #8ddabb;
 $dark-hover: #56b18c;
 $event-icon-color: #ffffff;
-
 #app{
   font-family: sans-serif, "OpenSans";
   width:320px;
@@ -25,12 +24,14 @@ $event-icon-color: #ffffff;
       i{
         color: $back-color;
         background: linear-gradient($light-progress, $dark-progress);
+        transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
       }
     }
     &.event{
       i{
         color: $event-icon-color;
         background-color: $back-color;
+        transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
       }
     }
     i{
@@ -137,7 +138,7 @@ $event-icon-color: #ffffff;
           z-index:-1;
         }
         &:after{
-          content:url("el.png");;
+          content:url("elem.png");;
           width: 10px;
           height:19px;
           position: relative;
@@ -169,6 +170,14 @@ $event-icon-color: #ffffff;
           top:-32px;
           left:20px;
           z-index:-1;
+        }
+      }
+      &.event, &.pevent{
+        &:hover{
+          i{
+            color: $event-icon-color;
+            background: linear-gradient($light-hover, $dark-hover);
+          }
         }
       }
     }
