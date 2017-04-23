@@ -9,7 +9,7 @@ var dTab = [["02.06.2015","lorem ipsum dolor sit amet","fa-heart"],
             ["30.06.2015","lorem ipsum dolor sit amet","fa-trophy"]];
 var sDate = new Date("6-01-2015");
 var eDate = new Date("6-30-2015");
-var cDate = new Date("6-28-2015");
+var cDate = new Date("6-10-2015");
 
 var t = new Timeline(dTab, sDate, eDate, cDate);
 var rootEl = $("#app");
@@ -22,7 +22,7 @@ const onWidthChange = function(){
     let childNum = rootEl.find($(".timeline")).children().length;
     let ulWidth = rootEl.find($(".timeline")).width();
     let eventsNum = rootEl.find($(".timeline")).find(".event").length + rootEl.find($(".timeline")).find(".pevent").length;
-    let eventWidth = 36;
+    let eventWidth = 36;  //hardcoded becouse of delay coused by font-awsome
     let liWidth = Math.floor((ulWidth-eventsNum*eventWidth)/childNum);
     rootEl.find($(".noevent")).width(liWidth);
 
