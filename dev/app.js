@@ -7,9 +7,9 @@ var dTab = [["02.06.2015","lorem ipsum dolor sit amet","fa-heart"],
             ["15.06.2015","lorem ipsum dolor sit amet","fa-gavel"],
             ["22.06.2015","lorem ipsum dolor sit amet","fa-graduation-cap"],
             ["30.06.2015","lorem ipsum dolor sit amet","fa-trophy"]];
-var sDate = new Date("6-01-2015");
-var eDate = new Date("6-30-2015");
-var cDate = new Date("6-10-2015");
+var sDate = new Date(2015,5,1);
+var eDate = new Date(2015,5,30);
+var cDate = new Date(2015,5,10);
 
 var t = new Timeline(dTab, sDate, eDate, cDate);
 var rootEl = $("#app");
@@ -41,7 +41,6 @@ var events = {
     p = $("<p>"+name+"</p>");
     div.append(p);
     $(this).find("div").append(div);
-    console.log(div);
   },
 
   onEventHoverOut : function(){
