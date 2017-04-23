@@ -1,7 +1,8 @@
 require('normalize.css/normalize.css');
 require('./styles.scss');
-var onWidthChange = require('./app.js');
+var events = require('./app.js');
 import $ from 'jquery';
 
-$( window ).ready(onWidthChange);
-$( window ).resize(onWidthChange);
+$( window ).ready(events.onWidthChange);
+$( window ).resize(events.onWidthChange);
+$("li.event, li.pevent").hover(events.onEventHoverOn,events.onEventHoverOut);

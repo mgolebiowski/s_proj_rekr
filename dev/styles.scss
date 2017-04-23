@@ -4,6 +4,9 @@ $dark-progress: #417a9f;
 $light-hover: #8ddabb;
 $dark-hover: #56b18c;
 $event-icon-color: #ffffff;
+
+@import 'tooltip';
+
 #app{
   font-family: sans-serif, "OpenSans";
   width:320px;
@@ -73,6 +76,7 @@ $event-icon-color: #ffffff;
       display:inline-block!important;
       vertical-align: middle;
       background-position-y: top!important;
+      position: relative;
       i{
         margin: 0;
         float: none;
@@ -83,7 +87,7 @@ $event-icon-color: #ffffff;
           margin-left: 2px; //icon is weirdly placed
         }
       }
-      p{
+      .date, .name{
         display:none;
       }
       &.past, &.future, &.current {
@@ -112,15 +116,8 @@ $event-icon-color: #ffffff;
         background-position: right;
         background-repeat: no-repeat;
       }
-      //last element tweaking
-      &:last-child.pevent div, &:last-child.event div{
-        top:-10px!important;
-      }
-      &:last-child:before{
-        top:24px!important;
-      }
       &:last-child:after{
-        display:none!important;
+        opacity: 0;
       }
       &.pevent{
         border:none;
@@ -177,6 +174,7 @@ $event-icon-color: #ffffff;
           i{
             color: $event-icon-color;
             background: linear-gradient($light-hover, $dark-hover);
+            cursor: pointer;
           }
         }
       }

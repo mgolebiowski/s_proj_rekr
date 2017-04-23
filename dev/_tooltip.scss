@@ -1,0 +1,41 @@
+$border-color: #8ddabb;
+$back-color: #122244;
+
+.tooltip{
+  position: absolute!important;
+  top: -74px;
+  left:-18px;
+  width:83px;
+  height: 65px;
+  border: 1px solid $border-color;
+  background-color: white;
+  z-index: 99;
+  &:after{
+    content: "";
+    width: 5px;
+    border: 1px solid $border-color;
+    border-left: none;
+    border-top: none;
+    transform: rotate(45deg);
+    height: 5px;
+    position: absolute;
+    top: 63px;
+    left: 36px;
+    background-color: white;
+  }
+  p:first-child{
+    display:block;
+    color:$back-color;
+    font-size: 12px;
+    font-weight: bold;
+    border-bottom: 1px solid $border-color;
+    padding-bottom: 5px;
+    margin-top: 8px;
+  }
+  p:last-child{
+    font-size: 10px;
+    font-weight: 100;
+    text-transform: uppercase;
+    margin-top:-4px;
+  }
+}
