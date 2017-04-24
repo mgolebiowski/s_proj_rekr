@@ -35,16 +35,21 @@ var events = {
 
     let div = $("<div></div>");
     div.addClass("tooltip");
+    div.css("display","none");
     let p = $("<p>"+date+"</p>");
     div.append(p);
     name = name.slice(0,21);
     p = $("<p>"+name+"</p>");
     div.append(p);
     $(this).find("div").append(div);
+    $(this).find(".tooltip").fadeIn(300);
   },
 
   onEventHoverOut : function(){
-    $(this).find(".tooltip").remove();
+    $(this).find(".tooltip").fadeOut(400);
+    setTimeout(()=>{
+      $(this).find(".tooltip").remove();
+    },400);
   }
 }
 module.exports=events;
